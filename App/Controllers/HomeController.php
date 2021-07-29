@@ -29,9 +29,22 @@ class HomeController extends Controller
 
         $data['categories'] = $this->categoryModel->all();
 
-        // echo '<pre>';
-        // print_r($data);
-        // echo '<pre>';
+        // paging
+        $definePage = 8;
+        $numPage = $this->cakeModel->numPage();
+
+        $pages = ceil($numPage / $definePage);
+        $data['pages'] = $pages;
+
+        $currentPage = 1;
+        if (isset($_GET['page'])) {
+            $currentPage = $_GET['page'];
+        }
+
+        $index = ($currentPage - 1) * $definePage;
+        $paging = $this->cakeModel->paging($index, $definePage);
+        $data['paging'] = $paging;
+
 
         $this->view("/home/index", $data);
     }
