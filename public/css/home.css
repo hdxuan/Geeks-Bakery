@@ -76,6 +76,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 .best-seller__left-arrow{
   position: absolute;
@@ -156,7 +157,27 @@ font-weight: normal;
 .mySlides {
   display: none;
 }
-
+.best-seller__previous-arrow{
+  position: absolute;
+    width: 35px;
+    height: 35px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+}
+.best-seller__next-arrow {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+.paging-arrow{
+  transition: all 0.2s ease-in;
+}
 .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
