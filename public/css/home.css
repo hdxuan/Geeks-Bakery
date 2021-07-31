@@ -66,6 +66,34 @@
   border: 2px solid var(--color-primary);
 }
 
+/* Detail Categories page */
+.nameCategories{
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+  margin-bottom: 20px;
+}
+.nameCategories li{
+  margin-bottom: 20px;
+}
+.nameCategories a:hover{
+  color: var(--color-primary);
+}
+.nameCategories a{
+  margin: 0 25px;
+  font-weight: 500;
+  color: var(--color-title);
+  transition: all 0.2s ease;
+  
+}
+.line{
+  margin: 20px 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(209, 204, 204);
+}
+/* End Detail Categories page */
+
 /* best-seller */
 .best-seller-background{
   margin: 20px 0;
