@@ -5,14 +5,16 @@ use App\Core\Controller;
 class CakesController extends Controller
 {
     private $cakeModel;
+    private $categoryModel;
     function __construct()
     {
         $this->cakeModel = $this->model('CakeModel');
+        $this->categoryModel = $this->model('CategoryModel');
     }
 
     function searchKey()
     {
-        $search = $_POST["keyword"];
+        $search = $_GET["keyword"];
         $cakes = $this->cakeModel->getByKeyword($search);
 
         $data['search'] = $search;
@@ -47,5 +49,21 @@ class CakesController extends Controller
         $data['paging'] = $paging;
 
         $this->view("/cakes/index", $data);
+    }
+
+    function Category()
+    {
+        $id = $_GET['id'];
+
+        $detail = $this->categoryModel->showCategory($id);
+        $data['detail'] = $detail;
+
+        $categories = $this->categoryModel->all();
+        $data['categories'] = $categories;
+
+        $caketype = $this->categoryModel->eachTypeCategory($id);
+        $data['caketype'] = $caketype;
+
+        $this->view("/cakes/Detail", $data);
     }
 }

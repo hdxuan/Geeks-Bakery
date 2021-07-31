@@ -10,12 +10,12 @@
         <h3 class="title">Experience Flavours</h3>
         <ul class="category__items noselect">
             <?php foreach ($data['categories'] as $index => $category) : ?>
-                <a href="#\">
+                <a href="<?= DOCUMENT_ROOT . DS . "Cakes/Category?" ?>id=<?= $category['id'] ?>">
                     <li class="category__item">
                         <!-- strtolower: in thuong cac chu|| str_replace: thay the, tu search  -->
                         <img class="category__item-image" src="<?= IMAGES_CATEGORY_URL ?>/<?= strtolower(str_replace(' ', '', $category['name'])) ?>.jfif" alt="category image">
-                        <div class="category__item-name"><?= $category['name'] ?></div>
-                        <div class="category__item-description"><?= $category['description'] ?></div>
+                        <h6 class="category__item-name"><?= $category['name'] ?></h6>
+                        <p class="category__item-description"><?= $category['description'] ?></p>
                     </li>
                 </a>
             <?php endforeach; ?>

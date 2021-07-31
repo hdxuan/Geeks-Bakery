@@ -7,8 +7,8 @@
 
             <nav class="header__menu noselect">
                 <a href="<?= DOCUMENT_ROOT ?>" class="header__menu__item">Home</a>
-                <a href="<?= DOCUMENT_ROOT . DS ?>cakes/index" class="header__menu__item">Cakes</a>
-                <a href="#" class="header__menu__item">About</a>
+                <a href="<?= DOCUMENT_ROOT . DS ?>Cakes/index" class="header__menu__item">Cakes</a>
+                <a href="https://github.com/hdxuan" target="_blank" class="header__menu__item">About</a>
             </nav>
 
             <div class="header__search">
@@ -16,7 +16,7 @@
                     <img src="<?= ICONS_URL ?>/search.png" alt="icon search">
                 </button>
 
-                <form action="<?= DOCUMENT_ROOT ?>/cakes/searchKey" method="POST">
+                <form action="<?= DOCUMENT_ROOT ?>/Cakes/searchKey" method="GET">
                     <input type="text" name="keyword" placeholder="Search.....">
                 </form>
             </div>
@@ -82,9 +82,9 @@
 
             <nav class="nav-mobile__items">
                 <ul>
-                    <li class="nav-mobile__link"><a href="#\">Home</a></li>
-                    <li class="nav-mobile__link"><a href="#\">Cakes</a></li>
-                    <li class="nav-mobile__link"><a href="#\">About</a></li>
+                    <li class="nav-mobile__link"><a href="<?= DOCUMENT_ROOT ?>">Home</a></li>
+                    <li class="nav-mobile__link"><a href="<?= DOCUMENT_ROOT . DS ?>Cakes/index">Cakes</a></li>
+                    <li class=" nav-mobile__link"><a href="https://github.com/hdxuan" target="_blank">About</a></li>
                     <li class="nav-mobile__link"><a href="#\">Profile</a></li>
                     <li class="nav-mobile__link"><a href="#\">Cart</a></li>
                     <li class="nav-mobile__link"><a href="#\">Sign out</a></li>

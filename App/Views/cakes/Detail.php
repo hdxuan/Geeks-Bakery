@@ -1,21 +1,32 @@
 <!-- wrapper sweeties -->
 <div class="wrapper">
     <section class="container sweeties">
-        <h3 class="title">Cakes</h3>
+        <h3 class="title">Categories</h3>
 
-        <p style="margin-bottom: 20px;">Search for keyword: <b><?= $data['search'] ?></b></p>
+        <?php foreach ($data['categories'] as $index => $categories) : ?>
+
+            <b>
+                <?= $categories['name'] ?>
+            </b>
+
+        <?php endforeach; ?>
+
+
+        <?php foreach ($data['detail'] as $index => $detail) : ?>
+            <p style="margin-bottom: 20px;">Category: <b><?= $detail['name'] ?></b></p>
+        <?php endforeach; ?>
 
         <div class="sweeties__items">
-            <?php if (!empty($data['cakes'])) : ?>
-                <?php foreach ($data['cakes'] as $index => $cake) : ?>
+            <?php if (!empty($data['caketype'])) : ?>
+                <?php foreach ($data['caketype'] as $index => $caketype) : ?>
                     <div class="sweeties__item">
-                        <img src="<?= IMAGES_CAKES_URL ?>/<?= $cake['image'] ?>" alt="sweeties image" class="sweeties__item__img" />
-                        <div class="sweeties__item__name line-clamp-2">
-                            <a href="#/"><?= $cake['name'] ?></a>
+                        <img src="<?= IMAGES_CAKES_URL ?>/<?= $caketype['image'] ?>" alt="sweeties image" class="sweeties__item-image" />
+                        <div class="sweeties__item-name line-clamp-2">
+                            <a href="#/"><?= $caketype['name'] ?></a>
                         </div>
-                        <div class="sweeties__item__prices">
-                            <div class="sweeties__item__price"><?= number_format($cake['price'], 0, '', ',') ?>đ</div>
-                            <div class="sweeties__item__original-price"><?= number_format($cake['price'], 0, '', ',') ?>đ</div>
+                        <div class="sweeties__item-prices">
+                            <div class="sweeties__item__price"><?= number_format($caketype['price'], 0, '', ',') ?>đ</div>
+                            <div class="sweeties__item__original-price"><?= number_format($caketype['price'], 0, '', ',') ?>đ</div>
                         </div>
                         <button class="btn btn--secondary">Add to cart +</button>
                     </div>

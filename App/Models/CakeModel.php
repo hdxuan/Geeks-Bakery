@@ -17,7 +17,7 @@ class CakeModel extends Database
         }
     }
 
-    function getByTd($id)
+    function getById($id)
     {
         $sttm = $this->db->prepare("SELECT * FROM cakes WHERE id = ?");
         $sttm->bind_param("i", $id);
@@ -54,13 +54,7 @@ class CakeModel extends Database
         $result = $this->db->query($sql);
 
         if ($result->num_rows > 0) {
-            // while ($result->fetch_row()) {
-            //     $row = mysqli_num_rows($result);
-            // }
-
             $numCake = mysqli_fetch_assoc($result);
-            // $numCake = $result[0]['numCake'];
-            // $row = mysqli_num_rows($result);
         }
 
         return $numCake['numCake'];

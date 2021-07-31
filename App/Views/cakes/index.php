@@ -1,6 +1,6 @@
 <div class="wrapper noselect">
     <div class="container sweeties">
-        <h3 class="title">Cake</h3>
+        <h3 class="title">Cakes</h3>
 
         <div class="sweeties__items">
             <?php foreach ($data['paging'] as $index => $paging) : ?>
