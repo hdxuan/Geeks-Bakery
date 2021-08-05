@@ -9,14 +9,20 @@ $("#myform").validate({
     rules: {
         username: {
             required: true,
-            pattern: "^[A-Za-z0-9_\.]{6,32}$"
+            pattern: /^[A-Za-z][A-Za-z0-9]{5,14}$/
             // pattern: "^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$"
         },
         your_email: {
             required: true,
-            email: true
+            email: true,
+            pattern: "/[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/igm"
+
         },
-        password: "required",
+        password: {
+            required: true,
+            // "required",
+            pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/
+        },
         confirm_password: {
             required: true,
             equalTo: "#password"
