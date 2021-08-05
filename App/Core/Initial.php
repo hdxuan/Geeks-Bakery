@@ -36,6 +36,9 @@ defined('DOCUMENT_ROOT') ?:  define('DOCUMENT_ROOT', SITE['document Root']);
 defined('PUBLIC_URL') ?: define('PUBLIC_URL', DOCUMENT_ROOT . '/public');
 defined('IMAGES_URL') ?:  define('IMAGES_URL', PUBLIC_URL .  '/img');
 
+// defined('UPLOAD_URL') ?:  define('UPLOAD_URL', PUBLIC_URL .  '/uploads');
+// defined('AVATAR_URL') ?:  define('AVATAR_URL', PUBLIC_URL .  '/uploads/avatar');
+
 
 defined('IMAGES_CAKES_URL') ?:  define('IMAGES_CAKES_URL', PUBLIC_URL . '/img/cakes');
 

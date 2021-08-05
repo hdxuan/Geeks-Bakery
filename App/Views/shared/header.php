@@ -7,7 +7,7 @@
 
             <nav class="header__menu noselect">
                 <a href="<?= DOCUMENT_ROOT ?>" class="header__menu__item">Home</a>
-                <a href="<?= DOCUMENT_ROOT . DS ?>Cakes/index" class="header__menu__item">Cakes</a>
+                <a href="<?= DOCUMENT_ROOT . DS ?>Cakes" class="header__menu__item">Cakes</a>
                 <a href="https://github.com/hdxuan" target="_blank" class="header__menu__item">About</a>
             </nav>
 
@@ -27,18 +27,24 @@
                     <span class="header__cart__amount">2</span>
                 </div>
 
-                <div class="header__user noselect">
-                    <div class="header__user__avatar ">
-                        <img src="<?= IMAGES_URL ?>/user.jpg" alt="user avatar">
-                        <div class="header__user__dropdown ">
-                            <ul>
-                                <li><a href="#">Profile</a></li>
-                                <li><a href="#">Cart</a></li>
-                                <li><a href="#">Sign out</a></li>
-                            </ul>
+                <?php if (isset($_SESSION['user'])) : ?>
+                    <div class="header__user noselect">
+                        <div class="header__user__avatar ">
+                            <img src="<?= PUBLIC_URL .  "/uploads/avatar/" . (empty($_SESSION['user']['avatar']) ? "default_avatar.png" : $_SESSION['user']['avatar'])  ?>" alt="user avatar">
+                            <div class="header__user__dropdown ">
+                                <ul>
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="#">Cart</a></li>
+                                    <li><a href="<?php unset($_SESSION['user']); ?>">Sign out</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php else : ?>
+                    <a href="<?= DOCUMENT_ROOT ?>/account"><button class="btn btn--primary">Login</button></a>
+
+                <?php endif; ?>
+
 
                 <label for="nav-mobile__button">
                     <img class="nav-mobile__icon" src="<?= ICONS_URL ?>/menu-mobile.svg" alt="menu bar" />
@@ -83,7 +89,7 @@
             <nav class="nav-mobile__items">
                 <ul>
                     <li class="nav-mobile__link"><a href="<?= DOCUMENT_ROOT ?>">Home</a></li>
-                    <li class="nav-mobile__link"><a href="<?= DOCUMENT_ROOT . DS ?>Cakes/index">Cakes</a></li>
+                    <li class="nav-mobile__link"><a href="<?= DOCUMENT_ROOT . DS ?>Cakes">Cakes</a></li>
                     <li class=" nav-mobile__link"><a href="https://github.com/hdxuan" target="_blank">About</a></li>
                     <li class="nav-mobile__link"><a href="#\">Profile</a></li>
                     <li class="nav-mobile__link"><a href="#\">Cart</a></li>

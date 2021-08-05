@@ -48,9 +48,9 @@ class CakeModel extends Database
         }
     }
 
-    function numPage()
+    function numCake()
     {
-        $sql = "SELECT COUNT(id) AS numCake FROM CAKES";
+        $sql = "SELECT COUNT(*) AS numCake FROM CAKES";
         $result = $this->db->query($sql);
 
         if ($result->num_rows > 0) {

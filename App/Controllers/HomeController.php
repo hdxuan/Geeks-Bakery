@@ -31,7 +31,7 @@ class HomeController extends Controller
 
         // paging
         $definePage = 8;
-        $numPage = $this->cakeModel->numPage();
+        $numPage = $this->cakeModel->numCake();
 
         $pages = ceil($numPage / $definePage);
         $data['pages'] = $pages;
@@ -44,6 +44,8 @@ class HomeController extends Controller
         $index = ($currentPage - 1) * $definePage;
         $paging = $this->cakeModel->paging($index, $definePage);
         $data['paging'] = $paging;
+
+        $data['currentPage'] = $currentPage;
 
 
         $this->view("/home/index", $data);

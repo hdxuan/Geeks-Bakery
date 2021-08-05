@@ -20,6 +20,29 @@ class CakesController extends Controller
         $data['search'] = $search;
         $data['cakes'] = $cakes;
 
+        //paging chua on lam
+
+        // $limit = 4;
+        // $numPage = $this->cakeModel->numCake();
+
+        // $pages = ceil($numPage / $limit);
+        // $data['pages'] = $pages;
+
+        // $currentPage = 1;
+        // if (isset($_GET['page'])) {
+        //     if ($_GET['page'] > 0) {
+        //         $currentPage = $_GET['page'];
+        //     }
+        //     if ($_GET['page'] > $pages) {
+        //         $currentPage = $pages;
+        //     }
+        // }
+
+        // $index = ($currentPage - 1) * $limit;
+        // $paging = $this->cakeModel->paging($index, $limit);
+        // $data['paging'] = $paging;
+        // $data['currentPage'] = $currentPage;
+
         $this->view("/cakes/search", $data);
     }
 
@@ -33,20 +56,28 @@ class CakesController extends Controller
         $data['cakes'] =  $cakes;
 
         // paging
-        $definePage = 8;
-        $numPage = $this->cakeModel->numPage();
+        $limit = 8;
+        $numPage = $this->cakeModel->numCake();
 
-        $pages = ceil($numPage / $definePage);
+        $pages = ceil($numPage / $limit);
         $data['pages'] = $pages;
 
         $currentPage = 1;
         if (isset($_GET['page'])) {
-            $currentPage = $_GET['page'];
+            if ($_GET['page'] > 0) {
+                $currentPage = $_GET['page'];
+            }
+            if ($_GET['page'] > $pages) {
+                $currentPage = $pages;
+            }
         }
 
-        $index = ($currentPage - 1) * $definePage;
-        $paging = $this->cakeModel->paging($index, $definePage);
+        $index = ($currentPage - 1) * $limit;
+        $paging = $this->cakeModel->paging($index, $limit);
         $data['paging'] = $paging;
+        $data['currentPage'] = $currentPage;
+
+
 
         $this->view("/cakes/index", $data);
     }
@@ -64,6 +95,10 @@ class CakesController extends Controller
         $caketype = $this->categoryModel->eachTypeCategory($id);
         $data['caketype'] = $caketype;
 
-        $this->view("/cakes/Detail", $data);
+        $this->view("/cakes/Categories", $data);
+    }
+
+    function Detail()
+    {
     }
 }
