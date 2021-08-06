@@ -60,7 +60,7 @@
                                     <?= number_format($cake['price'], 0, '', '.') ?>đ
                                 </div>
                             </div>
-                            <button class="btn btn--primary">Add to cart +</button>
+                            <button onclick="addToCart(<?= $_SESSION['user']['id'] ?> , <?= $cake['id'] ?> )" class="btn btn--primary">Add to cart +</button>
                         </div>
                     </div>
                 <?php endforeach; ?>

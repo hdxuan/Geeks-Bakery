@@ -15,13 +15,13 @@ $("#myform").validate({
         your_email: {
             required: true,
             email: true,
-            pattern: "/[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/igm"
+            // pattern: "/[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/igm"
 
         },
         password: {
             required: true,
             // "required",
-            pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/
+            // pattern: /^(?=.*[a-z])(?=.*[0-9])(?=.{8,})/
         },
         confirm_password: {
             required: true,

@@ -24,7 +24,7 @@
             <div class="header__info">
                 <div class="header__cart noselect">
                     <img src="<?= ICONS_URL ?>/cart.svg" alt="icon cart">
-                    <span class="header__cart__amount">2</span>
+                    <span id="numOfCartId" class="header__cart__amount">0</span>
                 </div>
 
                 <?php if (isset($_SESSION['user'])) : ?>

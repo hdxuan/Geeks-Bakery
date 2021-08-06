@@ -42,6 +42,13 @@
 <?php else : ?>
 
     <body>
+        <p hidden id="documentRoot"><?= DOCUMENT_ROOT ?></p>
+
+        <div id="toast">
+            <div id="img">Icon</div>
+            <div id="desc">A notification message..</div>
+        </div>
+
         <?php require_once(VIEW . '/shared/header.php') ?>
         <?php require_once(VIEW . $view . ".php") ?>
         <?php require_once(VIEW . '/shared/footer.php') ?>
@@ -50,6 +57,7 @@
 
         <script type="text/javascript" src="<?= PUBLIC_URL ?>/js/app.js"></script>
         <script type="text/javascript" src="<?= PUBLIC_URL ?>/js/slider.js"></script>
+        <script type="text/javascript" src="<?= PUBLIC_URL ?>/js/cart.js"></script>
 
     </body>
 
