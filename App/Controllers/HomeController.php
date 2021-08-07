@@ -42,8 +42,8 @@ class HomeController extends Controller
         }
 
         $index = ($currentPage - 1) * $definePage;
-        $paging = $this->cakeModel->paging($index, $definePage);
-        $data['paging'] = $paging;
+        $cakeOnlyPage = $this->cakeModel->paging($index, $definePage);
+        $data['cakeOnlyPage'] = $cakeOnlyPage;
 
         $data['currentPage'] = $currentPage;
 

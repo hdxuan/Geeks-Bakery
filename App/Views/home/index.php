@@ -60,7 +60,8 @@
                                     <?= number_format($cake['price'], 0, '', '.') ?>đ
                                 </div>
                             </div>
-                            <button onclick="addToCart(<?= $_SESSION['user']['id'] ?> , <?= $cake['id'] ?> )" class="btn btn--primary">Add to cart +</button>
+
+                            <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>, <?= $cake['id'] ?> )" class="btn btn--primary">Add to cart +</button>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -77,17 +78,17 @@
         <h3 class="title">Sweeties</h3>
 
         <div class="sweeties__items">
-            <?php foreach ($data['paging'] as $index => $paging) : ?>
+            <?php foreach ($data['cakeOnlyPage'] as $index => $cakeOnlyPage) : ?>
                 <div class="sweeties__item">
-                    <img src="<?= IMAGES_CAKES_URL ?>/<?= $paging['image'] ?>" alt="sweeties image" class="sweeties__item-image">
+                    <img src="<?= IMAGES_CAKES_URL ?>/<?= $cakeOnlyPage['image'] ?>" alt="sweeties image" class="sweeties__item-image">
                     <div class="sweeties__item-name">
-                        <a href="#\"><?= $paging['name'] ?></a>
+                        <a href="<?= DOCUMENT_ROOT . DS . "Cakes/Detail?" ?>id=<?= $cakeOnlyPage['id'] ?>"><?= $cakeOnlyPage['name'] ?></a>
                     </div>
                     <div class="sweeties__item-prices">
-                        <div class="sweeties__item__price"><?= number_format($paging['price'], 0, '', '.') ?>đ</div>
-                        <div class="sweeties__item__original-price"><?= number_format($paging['price'], 0, '', '.') ?>đ</div>
+                        <div class="sweeties__item__price"><?= number_format($cakeOnlyPage['price'], 0, '', '.') ?>đ</div>
+                        <div class="sweeties__item__original-price"><?= number_format($cakeOnlyPage['price'], 0, '', '.') ?>đ</div>
                     </div>
-                    <button class="btn btn--secondary">Add to cart +</button>
+                    <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?> , <?= $cakeOnlyPage['id'] ?> )" class="btn btn--secondary">Add to cart +</button>
                 </div>
             <?php endforeach; ?>
         </div>

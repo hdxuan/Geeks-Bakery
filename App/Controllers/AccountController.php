@@ -52,4 +52,10 @@ class AccountController extends Controller
 
         $this->view("/account/login", $data);
     }
+
+    function logOut()
+    {
+        unset($_SESSION['user']);
+        header("Location: " . DOCUMENT_ROOT);
+    }
 }

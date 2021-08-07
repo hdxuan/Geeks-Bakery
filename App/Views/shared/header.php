@@ -7,7 +7,7 @@
 
             <nav class="header__menu noselect">
                 <a href="<?= DOCUMENT_ROOT ?>" class="header__menu__item">Home</a>
-                <a href="<?= DOCUMENT_ROOT . DS ?>Cakes" class="header__menu__item">Cakes</a>
+                <a href="<?= DOCUMENT_ROOT ?>/Cakes" class="header__menu__item">Cakes</a>
                 <a href="https://github.com/hdxuan" target="_blank" class="header__menu__item">About</a>
             </nav>
 
@@ -24,7 +24,7 @@
             <div class="header__info">
                 <div class="header__cart noselect">
                     <img src="<?= ICONS_URL ?>/cart.svg" alt="icon cart">
-                    <span id="numOfCartId" class="header__cart__amount">0</span>
+                    <span id="numInCartID" class="header__cart__amount">0</span>
                 </div>
 
                 <?php if (isset($_SESSION['user'])) : ?>
@@ -35,7 +35,7 @@
                                 <ul>
                                     <li><a href="#">Profile</a></li>
                                     <li><a href="#">Cart</a></li>
-                                    <li><a href="<?php unset($_SESSION['user']); ?>">Sign out</a></li>
+                                    <li><a href="<?= DOCUMENT_ROOT . "/Account/logOut" ?>">Sign out</a></li>
                                 </ul>
                             </div>
                         </div>

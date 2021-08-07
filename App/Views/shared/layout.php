@@ -42,12 +42,12 @@
 <?php else : ?>
 
     <body>
-        <p hidden id="documentRoot"><?= DOCUMENT_ROOT ?></p>
-
         <div id="toast">
             <div id="img">Icon</div>
             <div id="desc">A notification message..</div>
         </div>
+        <p hidden id="documentRoot"><?= DOCUMENT_ROOT ?></p>
+
 
         <?php require_once(VIEW . '/shared/header.php') ?>
         <?php require_once(VIEW . $view . ".php") ?>

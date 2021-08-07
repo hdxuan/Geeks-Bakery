@@ -100,5 +100,13 @@ class CakesController extends Controller
 
     function Detail()
     {
+        if (isset($_GET)) {
+            $detail = $this->cakeModel->detailCake($_GET['id']);
+            $data['detail'] = $detail;
+
+            $this->view("/cakes/Detail", $data);
+        } else {
+            return " khong co banh";
+        }
     }
 }

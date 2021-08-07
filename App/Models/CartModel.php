@@ -6,12 +6,21 @@ class CartModel extends Database
 {
     function addToCart($data)
     {
+        if (!isset($data['iduser']) || !isset($data['idcake'])) {
+            return [
+                'isSuccess' => false,
+                'numInCart' => 0,
+                'error' => "Empty user id or cake id"
+            ];
+        }
         $idcake = $data['idcake'];
         $iduser = $data['iduser'];
         $amount = isset($data['amount']) ? $data['amount'] : 1;
 
         $isSuccess = true;
+        $error = "";
         $isInCart = $this->checkCakeInCart($idcake, $iduser);
+
         if ($isInCart > 0) {
             $amount += $isInCart;
 
@@ -22,23 +31,25 @@ class CartModel extends Database
 
             if ($sttm->error) {
                 $isSuccess = false;
+                $error = $sttm->error;
             }
         } else {
             $sttm = $this->db->prepare("INSERT INTO CART (id_cake, id_user, amount)  VALUES (?, ?, ?)");
             $sttm->bind_param("iii", $idcake, $iduser, $amount);
 
             $sttm->execute();
-
-            $amount = $this->amountInCart($iduser);
             if ($sttm->error) {
-                return  $isSuccess;
-            } else {
-                return [
-                    "isSuccess" =>  $isSuccess,
-                    "numOfCart" => $amount
-                ];
+                $isSuccess = false;
+                $error = $sttm->error;
             }
         }
+        $numInCart = $this->amountInCart($iduser);
+
+        return [
+            "isSuccess" =>  $isSuccess,
+            "numInCart" => $numInCart,
+            "error" => $error
+        ];
     }
 
     function amountInCart($iduser)
@@ -65,9 +76,10 @@ class CartModel extends Database
         $result =  $sttm->get_result();
 
         if ($result->num_rows > 0) {
-            return $result->fetch_assoc()['amount'];
+            $cart = $result->fetch_assoc();
+            return $cart['amount'];
         } else {
-            return false;
+            return 0;
         }
     }
 
@@ -80,10 +92,9 @@ class CartModel extends Database
 
         $result =  $sttm->get_result();
 
-        if ($result->num_rows > 0) {
-            return $result->fetch_assoc()['amount'];
-        } else {
-            return false;
+        if ($sttm->affected_rows > 0) {
+            return true;
         }
+        return false;
     }
 }
