@@ -1,3 +1,5 @@
+window.addEventListener("load", () => refreshCartNumber());
+
 function addToCart(userId, cakeId) {
     if (userId == 0) {
         launch_toast("Please login to add cake!");
@@ -12,8 +14,7 @@ function addToCart(userId, cakeId) {
         if (this.readyState == 4 && this.status == 200) {
             var response = JSON.parse(this.response);
             if (response.isSuccess == true) {
-
-                document.getElementById('numInCartID').innerText = response.numInCart;
+                refreshCartNumber(response.numInCart);
                 launch_toast("Added to cart suceess!");
             }
             else {
@@ -37,4 +38,25 @@ function launch_toast(message) {
     setTimeout(function () {
         x.className = x.className.replace("show", "");
     }, 5000);
+}
+
+function refreshCartNumber(cartNumber = -1) {
+    var cartNumberElement = document.getElementById("numInCartID");
+
+
+    if (cartNumber !== -1) {
+        cartNumberElement.innerText = cartNumber;
+    } else {
+        var documentRoot = document.getElementById('documentRoot').innerText;
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                cartNumber = this.responseText;
+                cartNumberElement.innerText = cartNumber;
+            }
+        };
+        xhttp.open("GET", `${documentRoot}//Cart//amountInCart`, true);
+        xhttp.send();
+    }
 }

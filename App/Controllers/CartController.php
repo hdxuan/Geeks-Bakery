@@ -19,4 +19,13 @@ class CartController extends Controller
             return;
         }
     }
+    function amountInCart()
+    {
+        if (isset($_SESSION['user'])) {
+            $amount = $this->cartModel->amountInCart($_SESSION['user']['id']);
+            echo $amount;
+        } else {
+            echo 0;
+        }
+    }
 }
