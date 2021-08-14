@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/footer.css" />
 
         <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/home.css" />
+        <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/profile.css" />
     <?php endif; ?>
 
 </head>

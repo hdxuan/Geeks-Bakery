@@ -10,6 +10,12 @@ class CartController extends Controller
     {
         $this->cartModel = $this->model('CartModel');
     }
+
+    function index()
+    {
+        $this->view("/cart/Cart");
+    }
+
     function addToCart()
     {
         if (isset($_GET)) {

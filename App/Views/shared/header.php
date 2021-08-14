@@ -23,7 +23,7 @@
 
             <div class="header__info">
                 <div class="header__cart noselect">
-                    <img src="<?= ICONS_URL ?>/cart.svg" alt="icon cart">
+                    <a href="<?= DOCUMENT_ROOT . "/Cart" ?>"><img src="<?= ICONS_URL ?>/cart.svg" alt="icon cart"></a>
                     <span id="numInCartID" class="header__cart__amount">0</span>
                 </div>
 
@@ -33,8 +33,8 @@
                             <img src="<?= PUBLIC_URL .  "/uploads/avatar/" . (empty($_SESSION['user']['avatar']) ? "default_avatar.png" : $_SESSION['user']['avatar'])  ?>" alt="user avatar">
                             <div class="header__user__dropdown ">
                                 <ul>
-                                    <li><a href="#">Profile</a></li>
-                                    <li><a href="#">Cart</a></li>
+                                    <li><a href="<?= DOCUMENT_ROOT . "/Profile" ?>">Profile</a></li>
+                                    <li><a href="<?= DOCUMENT_ROOT . "/Cart" ?>">Cart</a></li>
                                     <li><a href="<?= DOCUMENT_ROOT . "/Account/logOut" ?>">Sign out</a></li>
                                 </ul>
                             </div>
