@@ -25,6 +25,7 @@
 
         <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/home.css" />
         <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/profile.css" />
+        <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/cart.css" />
     <?php endif; ?>
 
 </head>
