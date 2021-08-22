@@ -21,7 +21,8 @@
                 <div class="profile__item">
                     <h3>Your Profile</h3>
                     <div class="profile__item--informations">
-                        <form action="" method="POST">
+
+                        <form action="<?= DOCUMENT_ROOT . "/Profile/update"  ?>" method="POST">
 
 
                             <label for="username">User name: </label>
@@ -37,7 +38,6 @@
                             <input type="text" name="address" value="<?= $_SESSION['user']['address'] ?>">
 
                             <button type="submit" value="Save" class="btn btn--primary">Save</button>
-
 
                         </form>
                     </div>

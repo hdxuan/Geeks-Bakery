@@ -44,3 +44,7 @@ defined('IMAGES_CAKES_URL') ?:  define('IMAGES_CAKES_URL', PUBLIC_URL . '/img/ca
 
 defined('ICONS_URL') ?:  define('ICONS_URL', PUBLIC_URL . '/img/icons');
 defined('IMAGES_CATEGORY_URL') ?:  define('IMAGES_CATEGORY_URL', PUBLIC_URL . '/img/categories');
+
+// sidebar admin
+$adminSide = require(CONF . DS . "admin_sidebar.php");
+defined('ADMIN_SIDEBAR') ?: define('ADMIN_SIDEBAR', $adminSide);

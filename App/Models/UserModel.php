@@ -66,11 +66,10 @@ class UserModel extends Database
             return false;
         }
     }
-
     function getById($id)
     {
-        $sttm = $this->db->prepare("SELECT * FROM users WHERE id = ?");
-        $sttm->bind_param("i", $id);
+        $sttm = $this->db->prepare("SELECT id, name, phone,address, email, avatar FROM users WHERE id = ?");
+        $sttm->bind_param("s", $id);
 
         $sttm->execute();
         $result = $sttm->get_result();
@@ -79,6 +78,23 @@ class UserModel extends Database
             return $result->fetch_assoc();
         } else {
             return false;
+        }
+    }
+
+    function editProfile($data, $id)
+    {
+
+        $sttm = $this->db->prepare("UPDATE USERS SET name = ?, phone = ?, address = ?, email = ?  WHERE id = ?");
+        $sttm->bind_param("ssssi", $data['name'], $data['phone'], $data['address'], $data['email'], $id);
+
+        $sttm->execute();
+
+
+        $result = $sttm->affected_rows;
+        if ($result < 1) {
+            return false;
+        } else {
+            return true;
         }
     }
 }

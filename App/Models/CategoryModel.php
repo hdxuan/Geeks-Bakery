@@ -49,4 +49,14 @@ class CategoryModel extends Database
             return false;
         }
     }
+    function store($data)
+    {
+    }
+
+    function uodate($data)
+    {
+    }
+    function delete($data)
+    {
+    }
 }
