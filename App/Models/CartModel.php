@@ -101,7 +101,7 @@ class CartModel extends Database
     {
     }
 
-    function uodate($data)
+    function update($data)
     {
     }
     function delete($data)
