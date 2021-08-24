@@ -23,30 +23,6 @@ class CakesController extends Controller
         }
         $data['cakes'] =  $cakes;
 
-        // paging
-        $limit = 8;
-        $numPage = $this->cakeModel->numCake();
-
-        $pages = ceil($numPage / $limit);
-        $data['pages'] = $pages;
-
-        $currentPage = 1;
-        if (isset($_GET['page'])) {
-            if ($_GET['page'] > 0) {
-                $currentPage = $_GET['page'];
-            }
-            if ($_GET['page'] > $pages) {
-                $currentPage = $pages;
-            }
-        }
-
-        $index = ($currentPage - 1) * $limit;
-        $paging = $this->cakeModel->paging($index, $limit);
-        $data['paging'] = $paging;
-        $data['currentPage'] = $currentPage;
-
-
-
         $this->view("/admin/cakes/index", $data);
     }
 

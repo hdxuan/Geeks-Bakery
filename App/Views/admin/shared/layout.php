@@ -35,13 +35,11 @@
     <script src="<?= PUBLIC_URL . "/admin" ?>/plugins/jquery-ui/jquery-ui.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="<?= PUBLIC_URL . "/admin" ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-
     <!-- overlayScrollbars -->
     <script src="<?= PUBLIC_URL . "/admin" ?>/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
     <script src="<?= PUBLIC_URL . "/admin" ?>/dist/js/adminlte.js"></script>
+
     <!-- DataTables  & Plugins -->
     <script src="<?= PUBLIC_URL . "/admin" ?>/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="<?= PUBLIC_URL . "/admin" ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -55,21 +53,18 @@
     <script src="<?= PUBLIC_URL . "/admin" ?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="<?= PUBLIC_URL . "/admin" ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="<?= PUBLIC_URL . "/admin" ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="<?= PUBLIC_URL . "/admin" ?>/dist/js/adminlte.min.js"></script>
-    <!-- Page specific script -->
+
     <script>
         $(function() {
-            $('#myTable').DataTable({
+            $('#myTable ').DataTable({
                 "paging": true,
-                "lengthChange": false,
-                "searching": false,
+                "lengthChange": true,
+                "searching": true,
                 "ordering": true,
-                "info": true,
-                "autoWidth": false,
+                "autoWidth": true,
                 "responsive": true,
                 "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            });
+            }).buttons().container().appendTo('#myTable_wrapper .col-md-6:eq(0)');;
         });
     </script>
 
