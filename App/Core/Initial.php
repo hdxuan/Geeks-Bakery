@@ -11,6 +11,7 @@ defined('CONT') ?: define('CONT', APP . DS . 'Controllers');
 defined('CORE') ?: define('CORE', APP . DS . 'Core');
 defined('MODEL') ?: define('MODEL', APP . DS . 'Models');
 defined('VIEW') ?: define('VIEW', APP . DS . 'Views');
+defined('PUBLIC_DIR_CAKE_IMAGES') ?:  define('PUBLIC_DIR_CAKE_IMAGES', ROOT . DS . 'public' . DS . 'img' . DS . 'cakes');
 
 
 

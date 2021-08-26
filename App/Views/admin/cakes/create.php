@@ -33,9 +33,9 @@
 
                             <label for="category">Category</label>
                             <select name="categoryId" class="form-control" id="category" required>
-                                <option value="">Select one</option>
+                                <option value="" disabled selected>Select one</option>
                                 <?php foreach ($data['categories'] as $key => $categories) : ?>
-                                    <option value="<?= $categories['name'] ?>"><?= $categories['name'] ?></option>
+                                    <option value="<?= $categories['id'] ?>"><?= $categories['name'] ?></option>
                                 <?php endforeach; ?>
                             </select>
 
@@ -45,12 +45,12 @@
 
                         <div class="form-group col">
                             <label for="size">Size</label>
-                            <input type="text" name="size" class="form-control" id="size" required>
+                            <input type="number" name="size" class="form-control" id="size" required>
                         </div>
 
                         <div class="form-group col">
                             <label for="price">Price</label>
-                            <input type="text" name="price" class="form-control" id="price" placeholder="Cake price" required>
+                            <input type="number" name="price" class="form-control" id="price" placeholder="Cake price" required>
                         </div>
                     </div>
 
@@ -63,7 +63,7 @@
                         <label for="image">Cake Image</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image" name="upload" required>
+                                <input type="file" class="custom-file-input" id="image" name="image" required>
                                 <label class="custom-file-label" for="image">Choose file</label>
                             </div>
                             <div class="input-group-append">

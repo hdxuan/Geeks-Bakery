@@ -88,6 +88,23 @@ class CakeModel extends Database
     }
     function store($data)
     {
+        $name = $data['name'];
+        $categoryId = $data['categoryId'];
+        $size = $data['size'];
+        $price = $data['price'];
+        $description = $data['description'];
+        $image = $data["image"];
+
+        $sttm = $this->db->prepare("INSERT INTO cakes (name, price, size, description,id_cake_type, image)  VALUES (?, ?, ?, ?, ?, ?)");
+        $sttm->bind_param("siisis", $name, $price, $size, $description, $categoryId, $image);
+
+        $sttm->execute();
+        $result = $sttm->affected_rows;
+        if ($result < 1) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     function update($data)
