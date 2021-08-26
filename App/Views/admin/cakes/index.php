@@ -23,7 +23,7 @@
                     <div class="card-header">
                         <div class="d-flex justify-content-between align-items-center">
                             <h3 class="card-title">Cake list</h3>
-                            <a class="btn btn-primary" href="<?= DOCUMENT_ROOT . "/admin/" ?> cakes/create">Create</a>
+                            <a class="btn btn-primary" href="<?= DOCUMENT_ROOT . "/admin/" ?>cakes/create">Create</a>
                         </div>
                     </div>
                     <!-- /.card-header -->

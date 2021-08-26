@@ -23,34 +23,25 @@ class CakesController extends Controller
         }
         $data['cakes'] =  $cakes;
 
-        $this->view("/admin/cakes/index", $data);
-    }
-
-    function Category()
-    {
-        $id = $_GET['id'];
-
-        $detail = $this->categoryModel->showCategory($id);
-        $data['detail'] = $detail;
-
         $categories = $this->categoryModel->all();
         $data['categories'] = $categories;
 
-        $caketype = $this->categoryModel->eachTypeCategory($id);
-        $data['caketype'] = $caketype;
-
-        $this->view("/cakes/Categories", $data);
+        $this->view("/admin/cakes/index", $data);
     }
 
-    function Detail()
+    function create()
     {
-        if (isset($_GET)) {
-            $detail = $this->cakeModel->detailCake($_GET['id']);
-            $data['detail'] = $detail;
+        $categories = $this->categoryModel->all();
+        $data['categories'] = $categories;
 
-            $this->view("/cakes/Detail", $data);
+        $this->view("/admin/cakes/create", $data);
+    }
+
+    function store()
+    {
+        if (!isset($_POST)) {
+            header("Location: " . DOCUMENT_ROOT . "/admin");
         } else {
-            return " khong co banh";
         }
     }
 }
