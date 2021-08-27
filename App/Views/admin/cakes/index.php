@@ -50,7 +50,7 @@
                                         <td> <img style="max-width: 100px;" class="rounded img-thumbnail" src="<?= IMAGES_CAKES_URL ?>/<?= $cake['image'] ?>" alt="cake image"></td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                                <button type="button" class="btn btn-success">Edit</button>
+                                                <a href="<?= DOCUMENT_ROOT . "/admin/cakes/edit/" . $cake['id'] ?>" type="button" class="btn btn-success">Edit</a>
                                                 <button type="button" class="btn btn-danger">Delete</button>
 
                                             </div>

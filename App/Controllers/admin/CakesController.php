@@ -74,4 +74,18 @@ class CakesController extends Controller
             }
         }
     }
+
+    function edit($id)
+    {
+        $cake = $this->cakeModel->getById($id);
+        if (!$cake) {
+            header("Location: " . DOCUMENT_ROOT . "/admin");
+        }
+        $categories = $this->categoryModel->all();
+        $data['cake'] = $cake;
+        $data['categories'] = $categories;
+
+
+        $this->view("/admin/cakes/edit", $data);
+    }
 }
