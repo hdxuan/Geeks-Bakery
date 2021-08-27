@@ -27,12 +27,12 @@
 
                         <div class="form-group col">
                             <label for="name">Name</label>
-                            <input value="<?= $data['cake']['name'] ?>" type="text" class="form-control" name="name" id="name" placeholder="Cake name" required>
+                            <input value="<?= $data['cake']['name'] ?>" type="text" class="form-control" name="name" id="name" placeholder="Cake name">
                         </div>
                         <div class="form-group col">
 
                             <label for="category">Category</label>
-                            <select name="categoryId" class="form-control" id="category" required>
+                            <select name="categoryId" class="form-control" id="category">
                                 <?php foreach ($data['categories'] as $key => $categories) : ?>
                                     <option value="<?= $categories['id'] ?> "><?= $categories['name'] ?></option>
                                 <?php endforeach; ?>
@@ -44,30 +44,30 @@
 
                         <div class="form-group col">
                             <label for="size">Size</label>
-                            <input value="<?= $data['cake']['size'] ?>" type="number" name="size" class="form-control" id="size" required>
+                            <input value="<?= $data['cake']['size'] ?>" type="number" name="size" class="form-control" id="size">
                         </div>
 
                         <div class="form-group col">
                             <label for="price">Price</label>
-                            <input value="<?= $data['cake']['price'] ?>" type="number" name="price" class="form-control" id="price" placeholder="Cake price" required>
+                            <input value="<?= $data['cake']['price'] ?>" type="number" name="price" class="form-control" id="price" placeholder="Cake price">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea value="<?= $data['cake']['description'] ?>" name="description" id="description" class="form-control" cols="2" rows="2"></textarea>
+                        <textarea name="description" id="description" class="form-control" cols="2" rows="2"><?= $data['cake']['description'] ?></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="image">Cake Image</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image" name="image" required>
+                                <input type="file" class="custom-file-input" id="image" name="image">
                                 <label class="custom-file-label" for="image">Choose file</label>
                             </div>
-                            <div class="input-group-append">
-                                <span class="input-group-text">Upload</span>
-                            </div>
+                        </div>
+                        <div>
+                            <img style="max-width: 200px;" class="rounded img-thumbnail" src="<?= IMAGES_CAKES_URL . DS . $data['cake']['image'] ?>" alt="image cake">
                         </div>
                     </div>
 
