@@ -109,6 +109,48 @@ class CakeModel extends Database
 
     function update($data)
     {
+        $name = $data['name'];
+        $categoryId = $data['categoryId'];
+        $size = $data['size'];
+        $price = $data['price'];
+        $description = $data['description'];
+        $id =  $data['id'];
+        $image = $data["image"];
+
+        // var_dump($image);
+        // die(); 
+        if (isset($image)) {
+            $sttm = $this->db->prepare("UPDATE cakes SET name = ?, 
+                                                    price = ?,
+                                                    size = ?,
+                                                    id_cake_type = ?,
+                                                    description = ?,
+                                                    image = ?
+                                                    where id = ?");
+            $sttm->bind_param("siiissi", $name, $price, $size, $categoryId, $description, $image, $id);
+            $sttm->execute();
+            $result = $sttm->affected_rows;
+            if ($result < 1) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            $sttm = $this->db->prepare("UPDATE cakes SET name = ?, 
+                                                        price = ?,
+                                                        size = ?,
+                                                        id_cake_type = ?,
+                                                        description = ?
+                                                        where id = ?");
+            $sttm->bind_param("siiisi", $name, $price, $size, $categoryId, $description, $id);
+            $sttm->execute();
+            $result = $sttm->affected_rows;
+            if ($result < 1) {
+                return false;
+            } else {
+                return true;
+            }
+        }
     }
     function delete($data)
     {

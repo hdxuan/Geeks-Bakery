@@ -21,7 +21,7 @@
             <div class="card-header">
                 <h3 class="card-title">Cake Information</h3>
             </div>
-            <form action="<?= DOCUMENT_ROOT . "/admin/cakes/store" ?>" method="POST" enctype="multipart/form-data">
+            <form action="<?= DOCUMENT_ROOT . "/admin/cakes/update/" ?> <?= $data['cake']['id'] ?>" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                     <div class="row">
 
