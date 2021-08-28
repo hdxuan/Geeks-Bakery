@@ -51,7 +51,30 @@
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                                 <a href="<?= DOCUMENT_ROOT ?> /admin/cakes/edit/<?= $cake['id'] ?> " type="button" class="btn btn-success">Edit</a>
-                                                <a href="<?= DOCUMENT_ROOT ?> /admin/cakes/delete/<?= $cake['id'] ?> " type="button" class="btn btn-danger">Delete</a>
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $cake['id'] ?>">Delete</button>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="deleteModal<?= $cake['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel<?= $cake['id'] ?>" aria-hidden="true" style="display: none;">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="deleteModalLabel<?= $cake['id'] ?>">Xác nhận xóa</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                Are you sure delete this cake?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                                                <a href="<?= DOCUMENT_ROOT ?>/admin/cakes/delete/<?= $cake['id'] ?>" class="btn btn-danger">Delete</a>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </td>
                                     </tr>

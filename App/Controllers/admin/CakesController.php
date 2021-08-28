@@ -132,6 +132,7 @@ class CakesController extends Controller
 
     function delete($id)
     {
+
         $this->cakeModel->delete($id);
         header("Location: " . DOCUMENT_ROOT . "/admin/cakes");
     }
