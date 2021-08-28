@@ -51,8 +51,7 @@
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                                 <a href="<?= DOCUMENT_ROOT ?> /admin/cakes/edit/<?= $cake['id'] ?> " type="button" class="btn btn-success">Edit</a>
-                                                <button type="button" class="btn btn-danger">Delete</button>
-
+                                                <a href="<?= DOCUMENT_ROOT ?> /admin/cakes/delete/<?= $cake['id'] ?> " type="button" class="btn btn-danger">Delete</a>
                                             </div>
                                         </td>
                                     </tr>

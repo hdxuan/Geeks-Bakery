@@ -152,7 +152,16 @@ class CakeModel extends Database
             }
         }
     }
-    function delete($data)
+    function delete($id)
     {
+        $sttm = $this->db->prepare("DELETE FROM  cakes where id = ?");
+        $sttm->bind_param("i", $id);
+        $sttm->execute();
+        // $result = $sttm->affected_rows;
+        // if ($result < 1) {
+        //     return false;
+        // } else {
+        //     return true;
+        // }
     }
 }
